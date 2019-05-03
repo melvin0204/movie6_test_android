@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
+import android.view.View
 import com.github.kittinunf.fuel.Fuel
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
@@ -57,6 +58,7 @@ class MainActivity : AppCompatActivity() {
                     var httpResponse:String = result.get()
                     adapter.movieList = Gson().fromJson(httpResponse,Array<MovieObject>::class.java)
                     adapter.notifyDataSetChanged()
+                    hint_tw.visibility = View.GONE
                 }
             }
         } catch (e: Exception) {
